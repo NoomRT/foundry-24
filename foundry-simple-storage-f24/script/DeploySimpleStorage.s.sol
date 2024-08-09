@@ -9,7 +9,7 @@ contract DeploySimpleStorage is Script {
     function run() external returns (SimpleStorage) {
         vm.startBroadcast();
         SimpleStorage simpleStorage = new SimpleStorage();
-        vm.startBroadcast();
+        vm.stopBroadcast();
         return simpleStorage;
     }
 }
