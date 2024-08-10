@@ -1,5 +1,7 @@
 # foundry-24
 
+## Learning Foundry Fundamentals with Cyfrin Updraft.
+
 to initialize foundry files project
 ```
 forge init 
