@@ -70,7 +70,7 @@ contract FundMeTest is Test {
         vm.prank(USER);
         fundMe.fund{value: SEND_VALUE}();
 
-        address funder = fundMe.getFunders(0);
+        address funder = fundMe.getFunder(0);
         assertEq(funder, USER);
     }
 
