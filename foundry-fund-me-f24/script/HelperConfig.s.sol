@@ -23,51 +23,45 @@ contract HelperConfig is Script {
         address priceFeed; // ETH/USD price feed address
     }
 
-    constructor(){
+    constructor() {
         // if we are on chain id is 11155111 or Sepolia chain then use this getSepoliaEthConfig()
         // if else we are on chain id is 1 or Ethereum Mainnet then use this getMainnetEthConfig()
         // else use Anvil chain and use this getAnvilEthConfig()
-        if(block.chainid == 11155111) {
+        if (block.chainid == 11155111) {
             activeNetworkConfig = getSepoliaEthConfig();
-        } else if(block.chainid == 1) {
+        } else if (block.chainid == 1) {
             activeNetworkConfig = getMainnetEthConfig();
         } else {
             activeNetworkConfig = getOrCreateAnvilEthConfig();
         }
     }
 
-    function getSepoliaEthConfig() public pure returns(NetworkConfig memory){
+    function getSepoliaEthConfig() public pure returns (NetworkConfig memory) {
         // price feed address
-        NetworkConfig memory sepoliaConfig = NetworkConfig({
-            priceFeed : 0x694AA1769357215DE4FAC081bf1f309aDC325306
-        });
+        NetworkConfig memory sepoliaConfig = NetworkConfig({priceFeed: 0x694AA1769357215DE4FAC081bf1f309aDC325306});
         return sepoliaConfig;
     }
 
-    function getMainnetEthConfig() public pure returns(NetworkConfig memory){
+    function getMainnetEthConfig() public pure returns (NetworkConfig memory) {
         // price feed address
-        NetworkConfig memory ethConfig = NetworkConfig({
-            priceFeed : 0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419
-        });
+        NetworkConfig memory ethConfig = NetworkConfig({priceFeed: 0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419});
         return ethConfig;
     }
 
-    function getOrCreateAnvilEthConfig() public returns(NetworkConfig memory){
+    function getOrCreateAnvilEthConfig() public returns (NetworkConfig memory) {
         // check if mockPriceFeed was already deployed before deploying it once more.
-        if(activeNetworkConfig.priceFeed != address(0)){
+        if (activeNetworkConfig.priceFeed != address(0)) {
             return activeNetworkConfig;
         }
 
-        // 1. Deploy the mocks 
+        // 1. Deploy the mocks
         // 2. Return the mock address
 
         vm.startBroadcast();
         MockV3Aggregator mockPriceFeed = new MockV3Aggregator(DECIMALS, INITIAL_PRICE);
         vm.stopBroadcast();
 
-        NetworkConfig memory anvilConfig = NetworkConfig({
-            priceFeed: address(mockPriceFeed)
-        });
+        NetworkConfig memory anvilConfig = NetworkConfig({priceFeed: address(mockPriceFeed)});
         return anvilConfig;
     }
 }
