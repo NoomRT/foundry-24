@@ -13,3 +13,6 @@
 [submodule "foundry-smart-contract-lottery-f24/lib/forge-std"]
 	path = foundry-smart-contract-lottery-f24/lib/forge-std
 	url = https://github.com/foundry-rs/forge-std
+[submodule "foundry-smart-contract-lottery-f24/lib/foundry-devops"]
+	path = foundry-smart-contract-lottery-f24/lib/foundry-devops
+	url = https://github.com/cyfrin/foundry-devops
