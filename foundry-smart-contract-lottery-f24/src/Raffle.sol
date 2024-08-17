@@ -45,7 +45,7 @@ contract Raffle {
         i_entranceFee = entranceFee;
     }
 
-    function enterRaffle() public payable {
+    function enterRaffle() external payable {
         // require(msg.value >= i_entranceFee, "Not enough ETH sent!");
         // require(msg.value < i_entranceFee, SendMoreToEnterRaffle());
         if (msg.value >= i_entranceFee) { 
@@ -58,7 +58,7 @@ contract Raffle {
         emit RaffleEntered(msg.sender);
     }
 
-    function pickWinner() public {}
+    function pickWinner() external {}
 
     /** 
      * Getter Functions
