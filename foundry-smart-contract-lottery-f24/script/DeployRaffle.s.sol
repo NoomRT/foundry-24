@@ -6,7 +6,6 @@ import {Raffle} from "../src/Raffle.sol";
 import {HelperConfig} from "../script/HelperConfig.s.sol";
 
 contract DeployRaffle is Script {
-    
     function run() public {}
 
     function deployContract() public returns (Raffle, HelperConfig) {
@@ -27,5 +26,4 @@ contract DeployRaffle is Script {
         vm.stopBroadcast();
         return (raffle, helperConfig);
     }
-
 }
