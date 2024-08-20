@@ -67,10 +67,8 @@ contract RaffleTest is Test {
         // Arrange
         vm.prank(PLAYER);
         // Act
-        // this what we tell solidity
-        vm.expectEmit(true, false, false, false, address(raffle)); // hey we are expecting to emit the event
-        emit RaffleEntered(PLAYER); // and this is exactly the event that we are expecting to emit here
-        // emit RaffleEntered(address(0)); // error because we emit the wrong custom error
+        vm.expectEmit(true, false, false, false, address(raffle));
+        emit RaffleEntered(PLAYER);
         // Assert
         raffle.enterRaffle{value: entranceFee}();
     }
