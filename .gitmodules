@@ -19,3 +19,6 @@
 [submodule "foundry-smart-contract-lottery-f24/lib/chainlink-brownie-contracts"]
 	path = foundry-smart-contract-lottery-f24/lib/chainlink-brownie-contracts
 	url = https://github.com/smartcontractkit/chainlink-brownie-contracts
+[submodule "foundry-smart-contract-lottery-f24/lib/solmate"]
+	path = foundry-smart-contract-lottery-f24/lib/solmate
+	url = https://github.com/transmissions11/solmate
