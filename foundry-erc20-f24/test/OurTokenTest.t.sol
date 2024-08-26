@@ -6,7 +6,7 @@ import {Test} from "forge-std/Test.sol";
 import {DeployOurToken} from "../script/DeployOurToken.s.sol";
 import {OurToken} from "../src/OurToken.sol";
 
-interface MintableToken {
+interface IMintableToken {
     function mint(address, uint256) external;
 }
 
@@ -107,6 +107,11 @@ contract OurTokenTest is Test {
         vm.expectRevert(); // "ERC20: transfer amount exceeds balance"
         vm.prank(bob);
         ourToken.transfer(alice, STARTING_BALANCE + 1 ether);
+    }
+
+    function testUsersCantMintToken() public {
+        vm.expectRevert();
+        IMintableToken(address(ourToken)).mint(address(this), 1);
     }
 
     // Additional tests you might consider
