@@ -3,7 +3,7 @@
 pragma solidity ^0.8.19;
 
 import {Test, console} from "forge-std/Test.sol";
-import {MintOurTokenInteractions} from "../../script/Interactions.s.sol";
+import {OurTokenInteractions} from "../../script/Interactions.s.sol";
 import {DeployOurToken} from "../../script/DeployOurToken.s.sol";
 import {OurToken} from "../../src/OurToken.sol";
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";

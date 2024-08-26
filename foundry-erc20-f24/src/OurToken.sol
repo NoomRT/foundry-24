@@ -4,7 +4,7 @@ pragma solidity ^0.8.19;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
-error OurToken__OnlyOwer();
+error OurToken__OnlyOwner();
 
 contract OurToken is ERC20 {
 
@@ -17,7 +17,7 @@ contract OurToken is ERC20 {
 
     modifier OnlyOwner() {
         if(msg.sender != i_owner) {
-            revert OurToken__OnlyOwer();
+            revert OurToken__OnlyOwner();
         }
         _;
     }
@@ -28,5 +28,9 @@ contract OurToken is ERC20 {
 
     function burn(address account, uint256 value) external OnlyOwner {
         _burn(account, value);
+    }
+
+    function getOwner() public view returns (address) {
+        return i_owner;
     }
 }
