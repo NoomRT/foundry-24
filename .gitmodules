@@ -34,3 +34,12 @@
 [submodule "foundry-nft-f24/lib/foundry-devops"]
 	path = foundry-nft-f24/lib/foundry-devops
 	url = https://github.com/cyfrin/foundry-devops
+[submodule "foundry-nft-f24/lib/forge-std"]
+	path = foundry-nft-f24/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
+[submodule "foundry-nft-f24/lib/chainlink-brownie-contracts"]
+	path = foundry-nft-f24/lib/chainlink-brownie-contracts
+	url = https://github.com/smartcontractkit/chainlink-brownie-contracts
+[submodule "foundry-nft-f24/lib/openzeppelin-contracts"]
+	path = foundry-nft-f24/lib/openzeppelin-contracts
+	url = https://github.com/OpenZeppelin/openzeppelin-contracts
