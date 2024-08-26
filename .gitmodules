@@ -31,3 +31,6 @@
 [submodule "foundry-erc20-f24/lib/foundry-devops"]
 	path = foundry-erc20-f24/lib/foundry-devops
 	url = https://github.com/cyfrin/foundry-devops
+[submodule "foundry-nft-f24/lib/foundry-devops"]
+	path = foundry-nft-f24/lib/foundry-devops
+	url = https://github.com/cyfrin/foundry-devops
