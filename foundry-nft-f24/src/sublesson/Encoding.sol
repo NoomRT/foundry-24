@@ -80,4 +80,16 @@ contract Encoding {
         string memory someString = string(multiDecodePacked());
         return someString;
     }
+
+    // Transactions - Function Call
+
+    // 1. ABI -> just to know name of the function and input type to send function call
+    // 2. Contract Address
+    // How do we send transaction that call functions with just the data field populated?
+    // How do we populate the data field?
+
+    function withdraw(address recentWinner) public {
+        (bool success, ) = recentWinner.call{value: address(this).balance}(""); // send money but don't pass any data keep data be empty
+        require(success, "Transfer Failed");
+    }
 }
