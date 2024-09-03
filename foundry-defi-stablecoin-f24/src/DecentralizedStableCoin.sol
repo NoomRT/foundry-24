@@ -23,6 +23,8 @@
 // private
 // view & pure functions
 
+import {ERC20Burnable, ERC20} from "@openzeppelin/contracts/tokens/ERC20/extensions/ERC20Burnable.sol";
+
 pragma solidity ^0.8.19;
 
 /**
@@ -35,6 +37,6 @@ pragma solidity ^0.8.19;
  * This is the contract meant to be governed by DSCEngince. This contract is just the ERC20 implementation of our stablecoin system.
  *
  */
-contract DecentralizedStableCoin {
-    constructor() {}
+contract DecentralizedStableCoin is ERC20Burnable {
+    constructor() ERC20("DecentralizedStableCoin", "DSC") {}
 }
