@@ -43,3 +43,6 @@
 [submodule "foundry-nft-f24/lib/openzeppelin-contracts"]
 	path = foundry-nft-f24/lib/openzeppelin-contracts
 	url = https://github.com/OpenZeppelin/openzeppelin-contracts
+[submodule "foundry-defi-stablecoin-f24/lib/openzeppelin-contracts"]
+	path = foundry-defi-stablecoin-f24/lib/openzeppelin-contracts
+	url = https://github.com/OpenZeppelin/openzeppelin-contracts
