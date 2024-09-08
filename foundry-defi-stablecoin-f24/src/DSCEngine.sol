@@ -189,7 +189,7 @@ contract DSCEngine is ReentrancyGuard {
     function getAccountCollateralValue(address user) public view returns (uint256 totalCollateralValueInUsd) {
         // loop though each collateral token, get the amount they have deposit, and map it up to
         // the price, to get the USD value
-        for (uint256 i = 0; i < s_collateralTokens; i++) {
+        for (uint256 i = 0; i < s_collateralTokens.length; i++) {
             address token = s_collateralTokens[i];
             uint256 amount = s_collateralDeposited[user][token];
             totalCollateralValueInUsd += getUsdValue(token, amount);
@@ -197,9 +197,9 @@ contract DSCEngine is ReentrancyGuard {
         return totalCollateralValueInUsd;
     }
 
-    function getUsdValue(address token, uint256 amount) public view returns (uint2560) {
+    function getUsdValue(address token, uint256 amount) public view returns (uint256) {
         AggregatorV3Interface priceFeed = AggregatorV3Interface(s_priceFeeds[token]);
-        (, int256 price,,,) = priceFeed.lastestRoundData();
+        (, int256 price,,,) = priceFeed.latestRoundData();
         // 1 ETH = $1000
         // The returned value from CLI will be 1000 * 1e8
         return ((uint256(price) * ADDITIONAL_FEED_PRECISION) * amount) / PRECISION;
